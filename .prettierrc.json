@@ -1,0 +1,9 @@
+{
+  "trailingComma": "all",
+  "singleQuote": true,
+  "vueIndentScriptAndStyle": true,
+  "bracketSpacing": false,
+  "printWidth": 200,
+  "singleAttributePerLine": true,
+  "endOfLine": "crlf"
+}
