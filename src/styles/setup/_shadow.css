@@ -1,0 +1,5 @@
+:root {
+    /* Shadows */
+    --shadow-icon-main: 0px 0px 40px 0px rgba(63, 221, 154, 1);
+    --shadow-icon-secondary: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+}
