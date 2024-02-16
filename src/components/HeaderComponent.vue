@@ -1,9 +1,13 @@
 <template>
   <div class="header">
-    <div class="header__item">Services</div>
-    <div class="header__item">Benefits</div>
-    <div class="header__item">Portfolio</div>
-    <div class="header__item">Contacts</div>
+    <a
+      class="header__item"
+      href="#services"
+      >Services</a
+    >
+    <a class="header__item">Benefits</a>
+    <a class="header__item">Portfolio</a>
+    <a class="header__item">Contacts</a>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -18,6 +22,12 @@
       color: var(--font-color-secondary);
       font-family: var(--font-futura-bold);
       font-size: var(--font-size-xl);
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: white;
+        cursor: pointer;
+      }
     }
   }
 </style>
