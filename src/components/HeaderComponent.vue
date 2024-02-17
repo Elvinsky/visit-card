@@ -12,6 +12,7 @@
 </template>
 <style lang="scss" scoped>
   .header {
+    padding: var(--space-xl);
     display: flex;
     flex-direction: row;
     width: 100%;
