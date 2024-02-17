@@ -3,7 +3,7 @@
     class="container"
     id="root"
   >
-    <p class="container__logo">R</p>
+    <div class="container__logo">R</div>
     <HeaderComponent />
     <div class="container__text">
       <TextBlock
@@ -102,6 +102,24 @@
   import ServiceComponent from './components/ServiceComponent.vue';
   import ContactUsComponent from './components/ContactUsComponent.vue';
   import FooterComponent from './components/FooterComponent.vue';
+  import {ref, computed, onMounted} from 'vue';
+
+  const shadowColorRed = ref(63);
+  const shadowColorBlue = ref(154);
+
+  const elementShadow = computed(() => `0px 0px 40px rgb(${shadowColorRed.value}, 221, ${shadowColorBlue.value})`);
+
+  const scrollEvent = () => {
+    const increment = 1;
+    const maxValue = 255;
+
+    shadowColorBlue.value = (shadowColorBlue.value + increment) % (maxValue + 1);
+    shadowColorRed.value = (shadowColorRed.value + increment) % (maxValue + 1);
+  };
+
+  onMounted(() => {
+    window.addEventListener('scroll', scrollEvent);
+  });
 </script>
 
 <style lang="scss" scoped>
@@ -118,16 +136,17 @@
 
     &__logo {
       font-size: 700px;
-      text-shadow: var(--shadow-icon-main);
       font-family: var(--font-futura-bold);
       position: sticky;
       top: 0;
       z-index: -1;
-      color: rgb(73, 73, 73);
+      color: black;
       display: flex;
       align-items: center;
       justify-content: center;
       width: 100%;
+      text-shadow: v-bind(elementShadow);
+      transition: all 0.3s ease;
     }
 
     &__text {
@@ -206,6 +225,7 @@
               color: #939393;
               font-size: 24px;
               text-align: start;
+              text-decoration: green dashed;
             }
           }
 
