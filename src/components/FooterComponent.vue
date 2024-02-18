@@ -102,5 +102,26 @@
       justify-content: center;
       gap: 30px;
     }
+
+    @include w-max($md) {
+      flex-direction: column;
+      justify-content: center;
+      gap: 15px;
+      position: static;
+
+      &__nav {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      &__social {
+        gap: 15px;
+
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
   }
 </style>

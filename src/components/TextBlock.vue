@@ -32,5 +32,9 @@
     width: v-bind(width);
     text-align: v-bind(align);
     font-family: var(--font-futura-regular);
+
+    @include w-max($sm) {
+      font-size: 20px;
+    }
   }
 </style>

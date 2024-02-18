@@ -11,14 +11,21 @@
           name="name"
           placeholder="Name"
           id="name"
+          v-model="formData.name"
         />
         <input
           type="email"
-          name="name"
+          name="email"
           placeholder="Email"
           id="email"
+          v-model="formData.email"
         />
-        <div class="contact-form__first-part__form__submit">Send</div>
+        <div
+          class="contact-form__first-part__form__submit"
+          @click="handleSendForm"
+        >
+          Send
+        </div>
       </form>
       <div class="contact-form__first-part__text">
         Ready to take your online presence to the next level? Contact us today for a free consultation. Let's turn your vision into a digital reality that captivates and converts.
@@ -45,7 +52,18 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+  import {ref} from 'vue';
+  const formData = ref({
+    name: '',
+    email: '',
+  });
+  const emits = defineEmits(['submit']);
+
+  const handleSendForm = () => {
+    emits('submit', formData.value);
+  };
+</script>
 
 <style scoped lang="scss">
   .contact-form {
@@ -68,6 +86,11 @@
         font-family: var(--font-futura-regular);
         color: #ababab;
         width: 85%;
+
+        @include w-max($sm) {
+          font-size: 20px;
+          text-align: center;
+        }
       }
 
       &__form {
@@ -85,6 +108,11 @@
           font-family: var(--font-futura-bold);
           font-size: 48px;
           color: white;
+
+          @include w-max($sm) {
+            font-size: 24px;
+            text-align: center;
+          }
         }
 
         input {
@@ -95,6 +123,11 @@
           font-size: 16px;
           background-color: transparent;
           width: 100%;
+
+          @include w-max($sm) {
+            width: 120%;
+            font-size: 16px;
+          }
         }
 
         &__submit {
@@ -105,11 +138,21 @@
           border-radius: 20px;
           transition: all 0.3s ease;
 
+          @include w-max($sm) {
+            font-size: 16px;
+          }
+
           &:hover {
             cursor: pointer;
             background-color: rgb(187, 187, 187);
           }
         }
+      }
+    }
+
+    &__second-part {
+      @include w-max($md) {
+        display: none;
       }
     }
   }

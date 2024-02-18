@@ -27,7 +27,7 @@
       <ServiceComponent />
     </div>
     <div class="container__contact-form">
-      <ContactUsComponent />
+      <ContactUsComponent @submit="sendForm" />
     </div>
     <div class="container__resps">
       <div class="container__resps__wrapper">
@@ -117,6 +117,12 @@
     shadowColorRed.value = (shadowColorRed.value + increment) % (maxValue + 1);
   };
 
+  const sendForm = (formdata) => {
+    // ADD SERVER SENDING LOGIC
+
+    console.log(formdata);
+  };
+
   onMounted(() => {
     window.addEventListener('scroll', scrollEvent);
   });
@@ -132,7 +138,15 @@
     gap: 70px;
     position: relative;
     z-index: 1;
-    margin-top: -820px;
+    margin-top: -760px;
+
+    @include w-max($md) {
+      margin-top: -660px;
+    }
+
+    @include w-max($sm) {
+      margin-top: -360px;
+    }
 
     &__logo {
       font-size: 700px;
@@ -147,6 +161,14 @@
       width: 100%;
       text-shadow: v-bind(elementShadow);
       transition: all 0.3s ease;
+
+      @include w-max($md) {
+        font-size: 600px;
+      }
+
+      @include w-max($sm) {
+        font-size: 300px;
+      }
     }
 
     &__text {
@@ -194,6 +216,12 @@
         grid-template-rows: 1fr 1fr 1fr;
         gap: 50px;
 
+        @include w-max($md) {
+          grid-template-columns: 1fr;
+          grid-auto-rows: auto;
+          gap: 50px;
+        }
+
         &__item {
           display: flex;
           flex-direction: row;
@@ -204,6 +232,13 @@
           box-shadow: 0px 0px 25px 0px rgba(255, 255, 255, 0.5);
           height: 300px;
           gap: 20px;
+
+          @include w-max($md) {
+            height: fit-content;
+            padding: 20px;
+            gap: 15px;
+            width: 80%;
+          }
 
           &__text-field {
             display: flex;
@@ -218,6 +253,11 @@
               color: white;
               font-size: 32px;
               text-align: start;
+
+              @include w-max($md) {
+                font-size: 24px;
+                text-align: center;
+              }
             }
 
             p {
@@ -225,7 +265,11 @@
               color: #939393;
               font-size: 24px;
               text-align: start;
-              text-decoration: green dashed;
+
+              @include w-max($md) {
+                font-size: 16px;
+                text-align: center;
+              }
             }
           }
 
@@ -236,6 +280,10 @@
 
             img {
               width: 150px;
+
+              @include w-max($sm) {
+                display: none;
+              }
             }
           }
         }
