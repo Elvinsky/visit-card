@@ -103,7 +103,7 @@
       gap: 30px;
     }
 
-    @include w-max($md) {
+    @include w-max($lg) {
       flex-direction: column;
       justify-content: center;
       gap: 15px;

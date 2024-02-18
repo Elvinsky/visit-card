@@ -216,7 +216,7 @@
         grid-template-rows: 1fr 1fr 1fr;
         gap: 50px;
 
-        @include w-max($md) {
+        @include w-max($lg) {
           grid-template-columns: 1fr;
           grid-auto-rows: auto;
           gap: 50px;
@@ -233,7 +233,7 @@
           height: 300px;
           gap: 20px;
 
-          @include w-max($md) {
+          @include w-max($lg) {
             height: fit-content;
             padding: 20px;
             gap: 15px;
@@ -254,7 +254,7 @@
               font-size: 32px;
               text-align: start;
 
-              @include w-max($md) {
+              @include w-max($lg) {
                 font-size: 24px;
                 text-align: center;
               }
@@ -266,7 +266,7 @@
               font-size: 24px;
               text-align: start;
 
-              @include w-max($md) {
+              @include w-max($lg) {
                 font-size: 16px;
                 text-align: center;
               }
