@@ -102,7 +102,7 @@
         flex-direction: row;
         gap: 40px;
 
-        @include w-max($md) {
+        @include w-max($lg) {
           flex-direction: column;
         }
       }
